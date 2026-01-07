@@ -48,6 +48,7 @@
 
 <script setup lang="ts">
 import { computed, inject, ref, watch } from 'vue'
+import type { Ref } from 'vue'
 import type { DropPosition } from '../composables/useDragDrop'
 import { useDragDrop } from '../composables/useDragDrop'
 import { useFormDesignerStore } from '../stores/formDesignerStore'
@@ -55,8 +56,8 @@ import type { FieldDefinition } from '../types/field'
 import { isContainerType } from '../types/field'
 
 type GlobalDragState = {
-  draggedFieldId: { value: string | null }
-  activeDropTargetId: { value: string | null }
+  draggedFieldId: Ref<string | null>
+  activeDropTargetId: Ref<string | null>
 }
 
 const props = defineProps<{ config: FieldDefinition }>()

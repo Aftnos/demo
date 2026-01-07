@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, provide } from 'vue'
+import { computed, provide, ref } from 'vue'
 import FieldItem from './FieldItem.vue'
 import { useFormDesignerStore } from '../stores/formDesignerStore'
 import type { DragData } from '../types/field'
@@ -14,8 +14,8 @@ import type { DragData } from '../types/field'
 const { addField, moveField, sortedFields } = useFormDesignerStore()
 
 const globalDragState = {
-  draggedFieldId: { value: null as string | null },
-  activeDropTargetId: { value: null as string | null }
+  draggedFieldId: ref<string | null>(null),
+  activeDropTargetId: ref<string | null>(null)
 }
 
 provide('globalDragState', globalDragState)
